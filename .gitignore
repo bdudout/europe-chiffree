@@ -1,0 +1,14 @@
+.DS_Store
+__pycache__/
+working/
+*.tar.gz
+.sites-runtime/
+node_modules/
+.openai/
+HANDOFF.md
+assets/
+content/
+data/
+tools/*
+!tools/check-public.py
+ILLUSTRATIONS.md
