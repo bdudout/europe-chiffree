@@ -39,4 +39,13 @@ for lang in ['fr','en','ja']:
  assert nav.index('methode.html')<nav.index('documents.html')
  assert 'data-language-select' in docs and 'Satoshi Tomokiyo' in sources and 'Daniel Bourdeau' in sources
  assert '../data/' not in sources
+ article=(root/lang/'marie-de-medicis.html').read_text()
+ method=(root/lang/'methode.html').read_text()
+ assert 'id="synthese"' in article and 'Satoshi Tomokiyo' in article
+ assert docs.count('class="corroborated"')==6, 'Six numerical occurrences must show their updated support'
+ assert len(re.findall(r'\[(?:b|c|z|s|de)\?\]',docs))==8, 'Keep the eight unresolved readings visible'
+ assert 'class="inferred"' not in docs, 'These four values are no longer supported solely by context'
+ assert all(code+'~' in method for code in ['72','79','86','90'])
+ assert all(x in sources for x in ['QUE','RE','SE','TION'])
+ assert 'Dear Mr Dudout' not in sources and 'Best wishes' not in sources
 print(json.dumps({'pages':len(pages),'languages':3,'localReferences':refs,'publication':'final pages and images only'}))
