@@ -2,7 +2,7 @@
 
 [Lire le site](https://bdudout.github.io/europe-chiffree/) · [Français](https://bdudout.github.io/europe-chiffree/fr/) · [English](https://bdudout.github.io/europe-chiffree/en/) · [日本語](https://bdudout.github.io/europe-chiffree/ja/)
 
-Lettres et télégrammes chiffrés européens. Premier dossier : Marie de Médicis à Savary de Brèves, 15 septembre et 10 novembre 1610, d’après les documents et relectures de Brice Dudout.
+Lettres et télégrammes chiffrés européens. Premier dossier : Marie de Médicis à Savary de Brèves, 15 septembre et 10 novembre 1610, d’après les documents et relectures de Brice Dudout. Deuxième dossier : l’instruction de Rome au légat Filippo Sega, 14 mai 1593 (BnF Français 3984, no 6), déchiffrement probable et partiel.
 
 À notre connaissance, premier déchiffrement de ces deux passages ; certains caractères restent probables mais non confirmés. La table candidate est BnF Français 3462, vue 112.
 
