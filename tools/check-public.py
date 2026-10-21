@@ -34,7 +34,7 @@ for file,page in pages.items():
   refs+=1
 for lang in ['fr','en','ja']:
  docs=(root/lang/'documents.html').read_text();sources=(root/lang/'sources.html').read_text()
- assert docs.count('class="line-scan"')==5 and docs.count('class="document-section"')==2
+ assert docs.count('class="line-scan"')==5 and len(re.findall(r'class="document-section[ "]',docs))==3
  nav=re.search(r'<nav class="nav".*?</nav>',docs).group()
  assert nav.index('methode.html')<nav.index('documents.html')
  assert 'data-language-select' in docs and 'Satoshi Tomokiyo' in sources and 'Daniel Bourdeau' in sources
@@ -42,8 +42,8 @@ for lang in ['fr','en','ja']:
  article=(root/lang/'marie-de-medicis.html').read_text()
  method=(root/lang/'methode.html').read_text()
  assert 'id="synthese"' in article and 'Satoshi Tomokiyo' in article
- assert docs.count('class="corroborated"')==6, 'Six numerical occurrences must show their updated support'
- assert len(re.findall(r'\[(?:b|c|z|s|de)\?\]',docs))==8, 'Keep the eight unresolved readings visible'
+ lines=''.join(re.findall(r'<section class="source-passage" id="(?:septembre|novembre)-l\d">.*?</section>',docs,re.S));assert lines.count('class="corroborated"')==6, 'Six numerical occurrences must show their updated support'
+ assert len(re.findall(r'\[(?:b|c|z|s|de)\?\]',lines))==8, 'Keep the eight unresolved readings visible'
  assert 'class="inferred"' not in docs, 'These four values are no longer supported solely by context'
  assert all(code+'~' in method for code in ['72','79','86','90'])
  assert all(x in sources for x in ['QUE','RE','SE','TION'])
