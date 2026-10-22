@@ -43,7 +43,7 @@ for lang in ['fr','en','ja']:
  method=(root/lang/'methode.html').read_text()
  assert 'id="synthese"' in article and 'Satoshi Tomokiyo' in article
  lines=''.join(re.findall(r'<section class="source-passage" id="(?:septembre|novembre)-l\d">.*?</section>',docs,re.S));assert lines.count('class="corroborated"')==6, 'Six numerical occurrences must show their updated support'
- assert len(re.findall(r'\[(?:b|c|z|s|de)\?\]',lines))==8, 'Keep the eight unresolved readings visible'
+ assert len(re.findall(r'\[(?:b|c|z|s|de)\?\]',lines))==4, 'Keep the four unresolved September readings visible (November confirmed by G. Lasry, Oct. 2026)'
  assert 'class="inferred"' not in docs, 'These four values are no longer supported solely by context'
  assert all(code+'~' in method for code in ['72','79','86','90'])
  assert all(x in sources for x in ['QUE','RE','SE','TION'])
