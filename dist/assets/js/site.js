@@ -26,3 +26,5 @@
   if(count)count.textContent=count.dataset.template.replace('{n}',shown);
  });
 })();
+// Menu « Dossiers » : ouverture au clic, fermeture au clic extérieur ou avec Échap.
+document.querySelectorAll('.nav-menu').forEach(m=>{const b=m.querySelector('.nav-toggle');b.addEventListener('click',()=>{const o=m.classList.toggle('open');b.setAttribute('aria-expanded',String(o))})});document.addEventListener('click',e=>{document.querySelectorAll('.nav-menu.open').forEach(m=>{if(!m.contains(e.target)){m.classList.remove('open');m.querySelector('.nav-toggle').setAttribute('aria-expanded','false')}})});document.addEventListener('keydown',e=>{if(e.key==='Escape')document.querySelectorAll('.nav-menu.open').forEach(m=>{m.classList.remove('open');m.querySelector('.nav-toggle').setAttribute('aria-expanded','false')})});

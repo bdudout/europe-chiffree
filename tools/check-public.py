@@ -36,7 +36,7 @@ for lang in ['fr','en','ja']:
  docs=(root/lang/'documents.html').read_text();sources=(root/lang/'sources.html').read_text()
  assert docs.count('class="line-scan"')==5 and len(re.findall(r'class="document-section[ "]',docs))>=8
  nav=re.search(r'<nav class="nav".*?</nav>',docs).group()
- assert nav.index('methode.html')<nav.index('documents.html')
+ assert 'marie-de-medicis.html' in re.search(r'<div class="nav-sub".*?</div>',nav).group() and 'documents.html' in nav and 'methode.html' in nav
  assert 'data-language-select' in docs and 'Satoshi Tomokiyo' in sources and 'Daniel Bourdeau' in sources
  assert '../data/' not in sources
  article=(root/lang/'marie-de-medicis.html').read_text()
