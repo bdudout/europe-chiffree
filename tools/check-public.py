@@ -22,7 +22,7 @@ for file in root.rglob('*.html'):
  assert len(p.ids)==len(set(p.ids)) and p.h1==1,file
  assert not re.search(r'/Users/|localhost:|https?://[^/]*\.chatgpt\.site|appgprj_|\{\{|<details|data-filter=',raw),file
  pages[file.resolve()]=p
-assert len(pages)==25
+assert len(pages)==28
 refs=0
 for file,page in pages.items():
  for ref in page.refs:
