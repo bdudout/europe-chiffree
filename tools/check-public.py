@@ -51,6 +51,7 @@ for lang in ['fr','en','ja']:
  assert 'id="stade-1710"' in docs and 'Rep. 5a Nr. 670' in docs and 'solve/599' in docs and 'Public Domain Mark' in docs and 'id="s16"' in sources and 'Riksarkivet' in docs
  assert 'archivinformationssystem.at/getimage' not in docs, 'No ÖStA image may be republished'
  assert 'id="hoeg-1675"' in docs and 'solve/465' in docs and 'kopibog' in docs and 'epid=15553654' in docs and 'id="s465a"' in sources, 'Høeg 1675 card with credits'
+ assert 'id="meyercrone-1675"' in docs and 'id="meyercrone-texte"' in docs and 'id="s465c"' in sources, 'Meyercrone 1675 sister record'
  assert 'id="mornay-1593"' in docs and 'solve/371' in docs and 'Daniel Bourdeau' in docs and 'mmoiresetcorre05morn' in docs and 'id="s371"' in sources, 'Duplessis-Mornay 1593 card with credits'
  assert 'id="vilaflor-1663"' in docs and 'solve/391' in docs and 'PT/TT/LMP/0002' in docs and 'Daniel Bourdeau' in docs and 'id="s391a"' in sources and 'id="s391b"' in sources, 'Vila Flor 1663 card with credits'
  assert 'rdigital/dissemination' not in docs, 'No ANTT/DigitArq image may be republished'
