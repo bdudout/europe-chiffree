@@ -62,5 +62,6 @@ for lang in ['fr','en','ja']:
  assert 'krakow-1662' not in docs and 'de-crypt.org/decrypt-web/Image' not in docs and 'assets/img/krakow' not in docs, 'No DECODE image may be republished'
  assert 'id="huyson-1547"' in docs and 'solve/500' in docs and 'Daniel Bourdeau' in docs and 'Türkei I 7-2-18' in docs and 'ID=6567149' in docs and 'id="s500a"' in sources and 'id="s500b"' in sources and 'id="s500c"' in sources, 'Huyson 1547 card with credits'
  assert 'id="nisa-1644"' in docs and 'joao1642.html' in docs and 'Daniel Bourdeau' in docs and 'MSLIV/1017' in docs and 'id="s380a"' in sources and 'id="s380b"' in sources, 'Nisa 1644 card with credits'
+ assert 'id="crawford-1813"' in docs and 'solve/652' in docs and 'Daniel Bourdeau' in docs and 'targets/jqa' in docs and 'M34-017-0027' in docs and 'id="s652a"' in sources and 'id="s652b"' in sources, 'Crawford 1813 card with credits'
  assert 'Dear Mr Dudout' not in sources and 'Best wishes' not in sources
 print(json.dumps({'pages':len(pages),'languages':3,'localReferences':refs,'publication':'final pages and images only'}))
