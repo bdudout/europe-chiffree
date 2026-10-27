@@ -56,6 +56,6 @@ for lang in ['fr','en','ja']:
  assert 'rdigital/dissemination' not in docs, 'No ANTT/DigitArq image may be republished'
  assert 'api.rigsarkivet.dk' not in docs, 'No Rigsarkivet image may be republished'
  assert 'id="dana-1783"' in docs and 'solve/485' in docs and 'Daniel Bourdeau' in docs and 'PCC 89' in docs and 'id="s485a"' in sources and 'id="s485b"' in sources, 'Dana 1783 card with credits'
- assert 'id="everett-1825"' in docs and 'solve/638' in docs and 'Daniel Bourdeau' in docs and 'targets/jqa' in docs and 'M31-027-0119' in docs and 'id="s638a"' in sources and 'id="s638b"' in sources, 'Everett 1825 card with credits'
+ assert 'id="everett-1825"' in docs and 'solve/638' in docs and 'Daniel Bourdeau' in docs and 'targets/jqa' in docs and 'M31-027-0119' in docs and 'id="everett-pages"' in docs and 'M31-027-0114' in docs and 'id="s638a"' in sources and 'id="s638b"' in sources, 'Everett 1825 card with credits'
  assert 'Dear Mr Dudout' not in sources and 'Best wishes' not in sources
 print(json.dumps({'pages':len(pages),'languages':3,'localReferences':refs,'publication':'final pages and images only'}))
