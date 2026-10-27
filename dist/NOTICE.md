@@ -6,6 +6,8 @@ L’organisation éditoriale et des principes de présentation sont adaptés de 
 
 Images : Bibliothèque nationale de France / Gallica, manuscrits Français 3789 (vues 32, 36), Français 3462 (vue 112) et Français 3984 (vue 24), fichiers fournis par Brice. Recadrages et réductions fidèles pour l’affichage ; aucun fac-similé généré par IA. Ces fac-similés restent soumis aux conditions de réutilisation de Gallica ; la licence des textes et du code ne les couvre pas.
 
+Lettre de Niccolò Ferducci à Ferdinand Iᵉʳ (Fiume, 19 juillet 1532) : Österreichisches Staatsarchiv, HHStA, StAbt Türkei I 2-2-19. Aucune image de l’ÖStA n’est reproduite (pas de licence libre affichée) ; la fiche renvoie à l’inventaire en ligne (AIS). La carte schématique de la fiche est générée par code sur fond Natural Earth (domaine public). Lecture du dossier turkei-1530, état C02 du 27 octobre 2026 ; repérage : catalogue de Daniel Bourdeau, n° 498.
+
 Les lectures proviennent du dossier Médicis–Brèves, état C14 / v5 du 16 octobre 2026, et, pour le légat Sega (1593), du dossier desportes-1593, état C13h du 20 octobre 2026, après la relecture n° 2 (déchiffrement probable et partiel ; lecture préliminaire antérieure de Satoshi Tomokiyo, Cryptologia, 2019). À notre connaissance, premier déchiffrement de ces deux passages ; certains caractères restent probables mais non confirmés. Les contrôles de couverture ne sont pas une validation indépendante. Les travaux antérieurs sont cités et distingués des deux lettres étudiées ici.
 
 Les traductions anglaises et les modernisations servent à la lecture ; le texte français proposé et les décisions du dossier restent accessibles sans substitution silencieuse.
