@@ -34,7 +34,7 @@ for file,page in pages.items():
   refs+=1
 for lang in ['fr','en','ja']:
  docs=(root/lang/'documents.html').read_text();sources=(root/lang/'sources.html').read_text()
- assert docs.count('class="line-scan"')==5 and len(re.findall(r'class="document-section[ "]',docs))>=7
+ assert docs.count('class="line-scan"')==5 and len(re.findall(r'class="document-section[ "]',docs))>=8
  nav=re.search(r'<nav class="nav".*?</nav>',docs).group()
  assert nav.index('methode.html')<nav.index('documents.html')
  assert 'data-language-select' in docs and 'Satoshi Tomokiyo' in sources and 'Daniel Bourdeau' in sources
@@ -52,6 +52,8 @@ for lang in ['fr','en','ja']:
  assert 'archivinformationssystem.at/getimage' not in docs, 'No ÖStA image may be republished'
  assert 'id="hoeg-1675"' in docs and 'solve/465' in docs and 'kopibog' in docs and 'epid=15553654' in docs and 'id="s465a"' in sources, 'Høeg 1675 card with credits'
  assert 'id="mornay-1593"' in docs and 'solve/371' in docs and 'Daniel Bourdeau' in docs and 'mmoiresetcorre05morn' in docs and 'id="s371"' in sources, 'Duplessis-Mornay 1593 card with credits'
+ assert 'id="vilaflor-1663"' in docs and 'solve/391' in docs and 'PT/TT/LMP/0002' in docs and 'Daniel Bourdeau' in docs and 'id="s391a"' in sources and 'id="s391b"' in sources, 'Vila Flor 1663 card with credits'
+ assert 'rdigital/dissemination' not in docs, 'No ANTT/DigitArq image may be republished'
  assert 'api.rigsarkivet.dk' not in docs, 'No Rigsarkivet image may be republished'
  assert 'Dear Mr Dudout' not in sources and 'Best wishes' not in sources
 print(json.dumps({'pages':len(pages),'languages':3,'localReferences':refs,'publication':'final pages and images only'}))
