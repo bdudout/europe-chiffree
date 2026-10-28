@@ -22,7 +22,8 @@ for file in root.rglob('*.html'):
  assert len(p.ids)==len(set(p.ids)) and p.h1==1,file
  assert not re.search(r'/Users/|localhost:|https?://[^/]*\.chatgpt\.site|appgprj_|\{\{|<details|data-filter=',raw),file
  pages[file.resolve()]=p
-assert len(pages)==28
+assert len(pages)==34
+for lang in ['fr','en','ja']:assert '<img' not in (root/lang/'meteo-urss-1940.html').read_text().split('<main',1)[1].split('</main>',1)[0], 'No JACAR image may be republished (meteo-urss-1940)'
 refs=0
 for file,page in pages.items():
  for ref in page.refs:
