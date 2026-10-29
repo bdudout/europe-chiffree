@@ -65,4 +65,17 @@ for lang in ['fr','en','ja']:
  assert 'id="nisa-1644"' in docs and 'joao1642.html' in docs and 'Daniel Bourdeau' in docs and 'MSLIV/1017' in docs and 'id="s380a"' in sources and 'id="s380b"' in sources, 'Nisa 1644 card with credits'
  assert 'id="crawford-1813"' in docs and 'solve/652' in docs and 'Daniel Bourdeau' in docs and 'targets/jqa' in docs and 'M34-017-0027' in docs and 'id="s652a"' in sources and 'id="s652b"' in sources, 'Crawford 1813 card with credits'
  assert 'Dear Mr Dudout' not in sources and 'Best wishes' not in sources
+# DECODE terms (29 Oct 2026): images for private research only, never republished; readings from a DECODE record cite DECODE.
+import hashlib
+reg=Path(__file__).resolve().parent/'decode-images.sha256'
+decode_sha={l.split()[0] for l in reg.read_text().splitlines() if l.strip()} if reg.exists() else set()
+for img in [f for f in root.rglob('*') if f.suffix.lower() in {'.jpg','.jpeg','.png','.webp','.gif','.tif','.tiff','.pdf'}]:
+ assert not re.search(r'decode(?![dr])',img.relative_to(root).as_posix(),re.I),('DECODE image path in dist',img)
+ assert hashlib.sha256(img.read_bytes()).hexdigest() not in decode_sha,('DECODE image republished',img)
+for file in root.rglob('*.html'):
+ raw=file.read_text()
+ assert not re.search(r'de-crypt\.org/decrypt-web/(Image|Download|DecodeImage)',raw,re.I),('DECODE image link',file)
+ if re.search(r'DECODE\s*(R|n[°o.]\s*)\d+',raw):
+  lang_sources=(file.parent/'sources.html').read_text()
+  assert 'de-crypt.org' in raw or 'de-crypt.org' in lang_sources,('DECODE record used without citing DECODE',file)
 print(json.dumps({'pages':len(pages),'languages':3,'localReferences':refs,'publication':'final pages and images only'}))

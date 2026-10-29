@@ -24,3 +24,9 @@ Le menu de langues à drapeaux conserve la page courante, mémorise le choix man
 Le workflow `.github/workflows/pages.yml` vérifie et déploie `dist/` sur GitHub Pages après chaque push sur `github-main`. Il utilise les permissions Pages du jeton temporaire de GitHub Actions ; aucun secret n’est enregistré dans le dépôt.
 
 Les illustrations d’ambiance sont identifiées comme générées, distinctes des fac-similés BnF/Gallica. Voir `NOTICE.md` et `LICENSE` pour les crédits et les droits.
+
+## 🔴 Images DECODE : jamais publiées (consigne du 29/10/2026)
+- Les images DECODE servent **à la recherche privée et à la transcription** seulement. Aucune image DECODE n'est publiée ni redistribuée, **ni recadrage, ni vignette, ni dérivé** : site, PR vers Daniel, artifact, mail, archive .zip partagée. Il faut l'autorisation écrite de l'archive qui détient l'original.
+- Rangement : toujours sous un chemin qui contient `decode` (`<dossier>/sources/decode/R<n>/`, avec SHA256 et NOTICE). Ainsi le registre les reconnaît.
+- Toute lecture ou correction publiée qui s'appuie sur une notice DECODE **cite DECODE** : « DECODE R<n> » avec le lien `https://de-crypt.org/decrypt-web/RecordsView/<n>`, dans la fiche et dans Sources.
+- Contrôle avant publication : `python3 europe-chiffree-site/tools/decode_registry.py` puis `python3 europe-chiffree-site/tools/check-public.py`. Le contrôle échoue si une image DECODE est dans dist/ ou si une notice DECODE est citée sans lien.

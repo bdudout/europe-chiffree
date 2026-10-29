@@ -11,4 +11,5 @@ content/
 data/
 tools/*
 !tools/check-public.py
+!tools/decode-images.sha256
 ILLUSTRATIONS.md
