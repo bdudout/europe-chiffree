@@ -25,6 +25,11 @@ Le workflow `.github/workflows/pages.yml` vérifie et déploie `dist/` sur GitHu
 
 Les illustrations d’ambiance sont identifiées comme générées, distinctes des fac-similés BnF/Gallica. Voir `NOTICE.md` et `LICENSE` pour les crédits et les droits.
 
+## Images d’archives : règle (4/11/2026)
+- **Gallica (BnF)** : les fac-similés déjà publiés sont conservés (décision de Brice Dudout du 4/11/2026, « On les garde »), selon les conditions de réutilisation non commerciale de Gallica. Chaque image porte la mention « Source gallica.bnf.fr / BnF » (légende, en-tête de fiche ou crédits) ; `tools/check-public.py` le vérifie.
+- **Jamais reproduites**, ni en vignette, ni en recadrage, ni en dérivé : DECODE, BNE, HSP, Besançon (Mémoire vive), HZA, HHStAW, JACAR, ÖStA/AIS, ANTT, Rigsarkivet.
+- Reproduites seulement sous domaine public ou licence ouverte explicite, avec le crédit demandé (NARA, NLA, BSB/MDZ, RAH, PARES, Internet Archive, Wikimedia Commons…).
+
 ## 🔴 Images DECODE : jamais publiées (consigne du 29/10/2026)
 - Les images DECODE servent **à la recherche privée et à la transcription** seulement. Aucune image DECODE n'est publiée ni redistribuée, **ni recadrage, ni vignette, ni dérivé** : site, PR vers Daniel, artifact, mail, archive .zip partagée. Il faut l'autorisation écrite de l'archive qui détient l'original.
 - Rangement : toujours sous un chemin qui contient `decode` (`<dossier>/sources/decode/R<n>/`, avec SHA256 et NOTICE). Ainsi le registre les reconnaît.

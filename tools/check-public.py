@@ -48,23 +48,33 @@ for lang in ['fr','en','ja']:
  assert 'class="inferred"' not in docs, 'These four values are no longer supported solely by context'
  assert all(code+'~' in method for code in ['72','79','86','90'])
  assert all(x in sources for x in ['QUE','RE','SE','TION'])
- assert 'id="ferducci-1532"' in docs and 'Daniel Bourdeau' in docs and 'Türkei I 2-2-19' in docs and 'solve/498' in docs and 'id="s13"' in sources
- assert 'id="stade-1710"' in docs and 'Rep. 5a Nr. 670' in docs and 'solve/599' in docs and 'Public Domain Mark' in docs and 'id="s16"' in sources and 'Riksarkivet' in docs
+ assert 'id="ferducci-1532"' in docs and 'Daniel Bourdeau' in docs and 'Türkei I 2-2-19' in docs and 'cyphersolver.com/ferducci1532.html' in docs and 'id="s13"' in sources
+ assert 'id="stade-1710"' in docs and 'Rep. 5a Nr. 670' in docs and 'cyphersolver.com/stade1710.html' in docs and 'Public Domain Mark' in docs and 'id="s16"' in sources and 'Riksarkivet' in docs
  assert 'archivinformationssystem.at/getimage' not in docs, 'No ÖStA image may be republished'
  assert 'id="hoeg-1675"' in docs and 'solve/465' in docs and 'kopibog' in docs and 'epid=15553654' in docs and 'id="s465a"' in sources, 'Høeg 1675 card with credits'
  assert 'id="meyercrone-1675"' in docs and 'id="meyercrone-texte"' in docs and 'id="s465c"' in sources, 'Meyercrone 1675 sister record'
  assert 'id="mornay-1593"' in docs and 'solve/371' in docs and 'Daniel Bourdeau' in docs and 'mmoiresetcorre05morn' in docs and 'id="s371"' in sources, 'Duplessis-Mornay 1593 card with credits'
- assert 'id="vilaflor-1663"' in docs and 'solve/391' in docs and 'PT/TT/LMP/0002' in docs and 'Daniel Bourdeau' in docs and 'id="s391a"' in sources and 'id="s391b"' in sources, 'Vila Flor 1663 card with credits'
+ assert 'id="vilaflor-1663"' in docs and 'cyphersolver.com/vilaflor1663.html' in docs and 'PT/TT/LMP/0002' in docs and 'Daniel Bourdeau' in docs and 'id="s391a"' in sources and 'id="s391b"' in sources, 'Vila Flor 1663 card with credits'
  assert 'rdigital/dissemination' not in docs, 'No ANTT/DigitArq image may be republished'
  assert 'api.rigsarkivet.dk' not in docs, 'No Rigsarkivet image may be republished'
- assert 'id="dana-1783"' in docs and 'solve/485' in docs and 'Daniel Bourdeau' in docs and 'PCC 89' in docs and 'id="s485a"' in sources and 'id="s485b"' in sources, 'Dana 1783 card with credits'
- assert 'id="everett-1825"' in docs and 'solve/638' in docs and 'Daniel Bourdeau' in docs and 'targets/jqa' in docs and 'M31-027-0119' in docs and 'id="everett-pages"' in docs and 'M31-027-0114' in docs and 'id="s638a"' in sources and 'id="s638b"' in sources, 'Everett 1825 card with credits'
- assert 'id="krakow-1663"' in docs and 'solve/439' in docs and 'Daniel Bourdeau' in docs and 'AKPot 3227' in docs and 'id="s439a"' in sources and 'id="s439b"' in sources, 'Krakow 1663 card with credits'
+ assert 'id="dana-1783"' in docs and 'targets/dana1783' in docs and 'Daniel Bourdeau' in docs and 'PCC 89' in docs and 'id="s485a"' in sources and 'id="s485b"' in sources, 'Dana 1783 card with credits'
+ assert 'id="everett-1825"' in docs and 'targets/everett1825' in docs and 'Daniel Bourdeau' in docs and 'targets/jqa' in docs and 'M31-027-0119' in docs and 'id="everett-pages"' in docs and 'M31-027-0114' in docs and 'id="s638a"' in sources and 'id="s638b"' in sources, 'Everett 1825 card with credits'
+ assert 'id="krakow-1663"' in docs and 'cyphersolver.com/wasowicz1662.html' in docs and 'Daniel Bourdeau' in docs and 'AKPot 3227' in docs and 'id="s439a"' in sources and 'id="s439b"' in sources, 'Krakow 1663 card with credits'
  assert 'krakow-1662' not in docs and 'de-crypt.org/decrypt-web/Image' not in docs and 'assets/img/krakow' not in docs, 'No DECODE image may be republished'
- assert 'id="huyson-1547"' in docs and 'solve/500' in docs and 'Daniel Bourdeau' in docs and 'Türkei I 7-2-18' in docs and 'ID=6567149' in docs and 'id="s500a"' in sources and 'id="s500b"' in sources and 'id="s500c"' in sources, 'Huyson 1547 card with credits'
+ assert 'id="huyson-1547"' in docs and 'cyphersolver.com/huyson1547.html' in docs and 'Daniel Bourdeau' in docs and 'Türkei I 7-2-18' in docs and 'ID=6567149' in docs and 'id="s500a"' in sources and 'id="s500b"' in sources and 'id="s500c"' in sources, 'Huyson 1547 card with credits'
  assert 'id="nisa-1644"' in docs and 'joao1642.html' in docs and 'Daniel Bourdeau' in docs and 'MSLIV/1017' in docs and 'id="s380a"' in sources and 'id="s380b"' in sources, 'Nisa 1644 card with credits'
- assert 'id="crawford-1813"' in docs and 'solve/652' in docs and 'Daniel Bourdeau' in docs and 'targets/jqa' in docs and 'M34-017-0027' in docs and 'id="s652a"' in sources and 'id="s652b"' in sources, 'Crawford 1813 card with credits'
+ assert 'id="crawford-1813"' in docs and 'targets/crawford1813' in docs and 'Daniel Bourdeau' in docs and 'targets/jqa' in docs and 'M34-017-0027' in docs and 'id="s652a"' in sources and 'id="s652b"' in sources, 'Crawford 1813 card with credits'
+ # Catalogue Bourdeau (4 Nov 2026): entries read or solved left the open catalogue; their solve/<n>.html pages are gone (404). Link the target page cyphersolver.com/<target>.html, or targets/<target> on GitHub when no write-up exists.
+ assert not re.search(r'cyphersolver/solve/(5|391|439|485|498|500|541|543|599|617|626|638|652|724|725|747|751|755|757|826|827|828)\.html',docs+sources), 'Dead Catalogue Bourdeau link (solve/<n>.html of an entry that left the catalogue)'
+ home=(root/lang/'index.html').read_text()
+ assert re.search(r'<div class="stat"><b>(\d+)</b>',home).group(1)==str(len(re.findall(r'class="document-section[ "]',docs))), 'Home counter must equal the number of document records (one document-section each)'
+ assert not re.search(r'Premier déchiffrement à notre connaissance ;|First decipherment to our knowledge;|私たちの知る限り初めての解読。',home), 'Footer must not claim a first decipherment on every page'
  assert 'Dear Mr Dudout' not in sources and 'Best wishes' not in sources
+# Gallica (4 Nov 2026): facsimiles kept under Gallica's non-commercial terms; every Gallica image carries « Source gallica.bnf.fr / BnF » next to it.
+for file in root.rglob('*.html'):
+ raw=file.read_text()
+ for m in re.finditer(r'<img [^>]*src="([^"]*(?:letter-3\d|f1[79]-l\d|key-112|sega-1593|raince-1526)[^"]*)"',raw):
+  assert 'gallica.bnf.fr / BnF' in raw[max(0,m.start()-1500):m.end()+1500],('Gallica image without « Source gallica.bnf.fr / BnF »',file,m.group(1))
 # DECODE terms (29 Oct 2026): images for private research only, never republished; readings from a DECODE record cite DECODE.
 import hashlib
 reg=Path(__file__).resolve().parent/'decode-images.sha256'
