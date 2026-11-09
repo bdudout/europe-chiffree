@@ -22,7 +22,7 @@ for file in root.rglob('*.html'):
  assert len(p.ids)==len(set(p.ids)) and p.h1==1,file
  assert not re.search(r'/Users/|localhost:|https?://[^/]*\.chatgpt\.site|appgprj_|\{\{|<details|data-filter=',raw),file
  pages[file.resolve()]=p
-assert len(pages)==37
+assert len(pages)==40
 for lang in ['fr','en','ja']:assert '<img' not in (root/lang/'meteo-urss-1940.html').read_text().split('<main',1)[1].split('</main>',1)[0], 'No JACAR image may be republished (meteo-urss-1940)'
 refs=0
 for file,page in pages.items():
@@ -75,6 +75,18 @@ for file in root.rglob('*.html'):
  raw=file.read_text()
  for m in re.finditer(r'<img [^>]*src="([^"]*(?:letter-3\d|f1[79]-l\d|key-112|sega-1593|raince-1526)[^"]*)"',raw):
   assert 'gallica.bnf.fr / BnF' in raw[max(0,m.start()-1500):m.end()+1500],('Gallica image without « Source gallica.bnf.fr / BnF »',file,m.group(1))
+# ThULB / StA Altenburg (9 Nov 2026): Schönbergische Sammlung Nr. 85 under CC BY 3.0; every image carries the licence and source next to it.
+for file in root.rglob('*.html'):
+ raw=file.read_text()
+ for m in re.finditer(r'<img [^>]*src="([^"]*(?:thumbshirn-1647|schoenberg-1665)[^"]*)"',raw):
+  near=raw[max(0,m.start()-200):m.end()+1500]
+  assert 'CC BY 3.0' in near and 'Staatsarchiv Altenburg' in near,('ThULB image without CC BY 3.0 credit',file,m.group(1))
+# Besançon BM / Mémoire vive (9 Nov 2026): no image or derivative from the library; the Sarmiento page shows only public-domain engravings (MET, Rijksmuseum, CC0).
+for lang in ['fr','en','ja']:
+ raw=(root/lang/'sarmiento-1639.html').read_text();main=raw.split('<main',1)[1].split('</main>',1)[0]
+ assert set(re.findall(r'<img [^>]*src="([^"]+)"',main))<={'../assets/img/sarmiento-1639/cardinal-infant-pontius.jpg','../assets/img/sarmiento-1639/gondomar-passe-1622.jpg'},'Only CC0 engravings on the Sarmiento page'
+ assert 'CC0' in main and 'memoirevive.besancon.fr' in main and 'issues/346' in main,'Sarmiento page credits (Mémoire vive, CC0 engravings, Daniel Bourdeau issue #346)'
+assert not [f for f in root.rglob('*') if re.search(r'memoire|besancon|ms209|ms159',f.name,re.I) and f.suffix.lower() in {'.jpg','.jpeg','.png','.webp'}],'No Mémoire vive image in dist'
 # DECODE terms (29 Oct 2026): images for private research only, never republished; readings from a DECODE record cite DECODE.
 import hashlib
 reg=Path(__file__).resolve().parent/'decode-images.sha256'
