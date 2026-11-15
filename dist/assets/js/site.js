@@ -1,15 +1,17 @@
 (()=>{
- const languages=['fr','en','ja'],languageSelect=document.querySelector('[data-language-select]');
+ const languageSelect=document.querySelector('[data-language-select]');
+ const options=languageSelect?[...languageSelect.options]:[],languages=options.map(o=>o.value);
  const switchLanguage=lang=>{
   try{localStorage.setItem('europe-language',lang)}catch{}
-  const file=location.pathname.split('/').pop()||'index.html';
-  const target=new URL('../'+lang+'/'+file,location.href);target.search=location.search;target.hash=location.hash;
+  const option=options.find(o=>o.value===lang);if(!option)return;
+  const target=new URL(option.dataset.href,location.href);target.search=location.search;
+  if(target.pathname.split('/').pop()===(location.pathname.split('/').pop()||'index.html'))target.hash=location.hash;
   location.replace(target.href);
  };
  let preferred;
  try{preferred=localStorage.getItem('europe-language')}catch{}
- if(!languages.includes(preferred)){
-  preferred=(navigator.languages||[navigator.language||'fr']).map(l=>l.toLowerCase().split('-')[0]).find(l=>languages.includes(l))||'fr';
+ if(languages.length&&!languages.includes(preferred)){
+  preferred=(navigator.languages||[navigator.language||'fr']).map(l=>{l=l.toLowerCase();return l.startsWith('no')||l.startsWith('nn')?'nb':l.split('-')[0]}).find(l=>languages.includes(l))||'fr';
   try{localStorage.setItem('europe-language',preferred)}catch{}
   if(languageSelect&&preferred!==document.documentElement.lang){switchLanguage(preferred);return}
  }

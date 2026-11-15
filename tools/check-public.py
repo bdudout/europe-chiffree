@@ -22,7 +22,13 @@ for file in root.rglob('*.html'):
  assert len(p.ids)==len(set(p.ids)) and p.h1==1,file
  assert not re.search(r'/Users/|localhost:|https?://[^/]*\.chatgpt\.site|appgprj_|\{\{|<details|data-filter=',raw),file
  pages[file.resolve()]=p
-assert len(pages)==88
+# 88 = pages FR/EN/JA + accueil de langue ; les langues ajoutées (it, es, de…) sont partielles et contrôlées à part.
+assert sum(1 for f in pages if f.parent.name in ('fr','en','ja'))+1==88
+extra=sorted(d.name for d in root.iterdir() if d.is_dir() and d.name not in ('fr','en','ja','assets') and (d/'index.html').exists())
+for lang in extra:
+ for f in (root/lang).glob('*.html'):
+  raw=f.read_text();assert '<html lang="'+lang+'"' in raw and 'data-language-select' in raw,f
+  assert not re.search(r'api\.rigsarkivet\.dk|rdigital/dissemination|archivinformationssystem\.at/getimage',raw.split('<main',1)[1].split('</main>',1)[0]) or f.name=='documents.html',f
 for lang in ['fr','en','ja']:assert '<img' not in (root/lang/'meteo-urss-1940.html').read_text().split('<main',1)[1].split('</main>',1)[0], 'No JACAR image may be republished (meteo-urss-1940)'
 refs=0
 for file,page in pages.items():
@@ -98,6 +104,6 @@ for file in root.rglob('*.html'):
  raw=file.read_text()
  assert not re.search(r'de-crypt\.org/decrypt-web/(Image|Download|DecodeImage)',raw,re.I),('DECODE image link',file)
  if re.search(r'DECODE\s*(R|n[°o.]\s*)\d+',raw):
-  lang_sources=(file.parent/'sources.html').read_text()
+  lang_sources=((file.parent/'sources.html') if (file.parent/'sources.html').exists() else root/'en'/'sources.html').read_text()
   assert 'de-crypt.org' in raw or 'de-crypt.org' in lang_sources,('DECODE record used without citing DECODE',file)
-print(json.dumps({'pages':len(pages),'languages':3,'localReferences':refs,'publication':'final pages and images only'}))
+print(json.dumps({'pages':len(pages),'languages':3+len(extra),'localReferences':refs,'publication':'final pages and images only'}))
