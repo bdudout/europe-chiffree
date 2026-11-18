@@ -90,8 +90,17 @@ for file in root.rglob('*.html'):
 # Besançon BM / Mémoire vive (9 Nov 2026): no image or derivative from the library; the Sarmiento page shows only public-domain engravings (MET, Rijksmuseum, CC0).
 for lang in ['fr','en','ja']:
  raw=(root/lang/'sarmiento-1639.html').read_text();main=raw.split('<main',1)[1].split('</main>',1)[0]
- assert set(re.findall(r'<img [^>]*src="([^"]+)"',main))<={'../assets/img/sarmiento-1639/cardinal-infant-pontius.jpg','../assets/img/sarmiento-1639/gondomar-passe-1622.jpg'},'Only CC0 engravings on the Sarmiento page'
+ assert set(re.findall(r'<img [^>]*src="([^"]+)"',main))<={'../assets/img/sarmiento-1639/cardinal-infant-pontius.jpg','../assets/img/sarmiento-1639/gondomar-passe-1622.jpg','../assets/img/sarmiento-1639/real-biblioteca-ii-2183-f49.webp'},'Only CC0 engravings and the authorised Real Biblioteca image on the Sarmiento page'
  assert 'CC0' in main and 'memoirevive.besancon.fr' in main and 'issues/346' in main,'Sarmiento page credits (Mémoire vive, CC0 engravings, Daniel Bourdeau issue #346)'
+# Real Biblioteca de Palacio / Patrimonio Nacional (authorisation RB102/26, signed 18 Nov 2026): only II/2183 f. 49 (Sarmiento page) and II/1850 f. 20 (Coloma article),
+# each with the mandatory credit line right under the image, in every language.
+RB={'real-biblioteca-ii-2183-f49':'Real Biblioteca de Palacio, Madrid, Patrimonio Nacional, II/2183, f. 49','real-biblioteca-ii-1850-f20':'Real Biblioteca de Palacio, Madrid, Patrimonio Nacional, II/1850, f. 20'}
+assert {f.stem for f in root.rglob('*') if re.search(r'real-biblioteca|realbiblioteca|patrimonio',f.name,re.I) and f.suffix.lower() in {'.jpg','.jpeg','.png','.webp','.tif','.tiff'}}<=set(RB),'Only the two authorised Real Biblioteca images'
+for file in root.rglob('*.html'):
+ raw=file.read_text()
+ for m in re.finditer(r'<img [^>]*src="[^"]*(real-biblioteca-[^"/]+)\.webp"',raw):
+  assert m.group(1) in RB,('Unauthorised Real Biblioteca image',file,m.group(1))
+  assert RB[m.group(1)] in raw[m.end():m.end()+2000].split('</figure>',1)[0],('Real Biblioteca image without its mandatory credit line',file,m.group(1))
 assert not [f for f in root.rglob('*') if re.search(r'memoire|besancon|ms209|ms159',f.name,re.I) and f.suffix.lower() in {'.jpg','.jpeg','.png','.webp'}],'No Mémoire vive image in dist'
 # DECODE terms (29 Oct 2026): images for private research only, never republished; readings from a DECODE record cite DECODE.
 import hashlib
