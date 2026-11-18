@@ -23,7 +23,7 @@ for file in root.rglob('*.html'):
  assert not re.search(r'/Users/|localhost:|https?://[^/]*\.chatgpt\.site|appgprj_|\{\{|<details|data-filter=',raw),file
  pages[file.resolve()]=p
 # 88 = pages FR/EN/JA + accueil de langue ; les langues ajoutées (it, es, de…) sont partielles et contrôlées à part.
-assert sum(1 for f in pages if f.parent.name in ('fr','en','ja'))+1==88
+assert sum(1 for f in pages if f.parent.name in ('fr','en','ja'))+1==89  # +1 : heinsberg-1469 (FR seulement parmi FR/EN/JA)
 extra=sorted(d.name for d in root.iterdir() if d.is_dir() and d.name not in ('fr','en','ja','assets') and (d/'index.html').exists())
 for lang in extra:
  for f in (root/lang).glob('*.html'):
